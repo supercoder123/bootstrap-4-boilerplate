@@ -6,7 +6,7 @@ const sass = require("gulp-sass");
 
 gulp.task("sass", () => {
   return gulp
-    .src(["node_modules/boostrap/scss/bootstrap.scss", "src/scss/*.scss"])
+    .src(["node_modules/bootstrap/scss/bootstrap.scss", "src/scss/*.scss"])
     .pipe(sass())
     .pipe(gulp.dest("src/css"))
     .pipe(browserSync.stream());
@@ -50,4 +50,5 @@ gulp.task("fa", () => {
     .src("node_modules/font-awesome/css/font-awesome.min.css")
     .pipe(gulp.dest("src/css"));
 });
+
 gulp.task("default", ["js", "serve", "fa", "fonts"]);
