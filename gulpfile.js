@@ -2,6 +2,7 @@ const gulp = require("gulp");
 const browserSync = require("browser-sync");
 const sass = require("gulp-sass");
 
+//compile sass and inject into browser
 gulp.task("sass", () => {
   return gulp
     .src(["node_modules/bootstrap/scss/bootstrap.scss", "src/scss/*.scss"])
