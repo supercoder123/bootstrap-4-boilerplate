@@ -28,13 +28,13 @@ gulp.task("js", () => {
 //watch sass and server
 gulp.task("serve", ["sass"], () => {
   browserSync.init({
-    server: "./src"
+    server: "./"
   });
   gulp.watch(
     ["node_modules/bootstrap/scss/bootstrap.scss", "src/scss/*.scss"],
     ["sass"]
   );
-  gulp.watch("src/*.html").on("change", browserSync.reload);
+  gulp.watch("index.html").on("change", browserSync.reload);
 });
 
 //move fonts folder to src/fonts
@@ -51,4 +51,9 @@ gulp.task("fa", () => {
     .pipe(gulp.dest("src/css"));
 });
 
-gulp.task("default", ["js", "serve", "fa", "fonts"]);
+//move navbar-fixed to src/js
+gulp.task("navbar", () => {
+  return gulp.src("navbar-fixed.js").pipe(gulp.dest("src/js"));
+});
+
+gulp.task("default", ["js", "serve", "fa", "fonts", "navbar"]);
